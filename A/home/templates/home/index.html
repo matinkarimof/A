@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container pt-5 d-flex    justify-content-center gap-5 flex-wrap flex-row">
+    {% for todo in todos %}
+    <div class="card bg-body-tertiary text-black-50  p-3 rounded rounded-5" style="width: 400px">
+        <h1 class="card-title">{{ todo.title }}</h1>
+        <p class="card-body">{{ todo.content|truncatewords:20 }}</p>
+        <span>{{ todo.created_at }} -- {{ todo.is_done }}</span>
+        <a href="{% url 'detail' todo.id %}" class="btn btn-outline-info">Detail</a>
+
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

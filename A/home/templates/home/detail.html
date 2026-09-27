@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <h1>Detail Page</h1>
+  <div class="container pt-5 d-flex    justify-content-center gap-5 flex-wrap flex-row">
+    <div class="card bg-body-tertiary text-black-50  p-3 rounded rounded-5">
+        <h1 class="card-title">{{ todo.title }}</h1>
+        <p class="card-body">{{ todo.content }}</p>
+        <span>{{ todo.created_at }} -- {{ todo.is_done }}</span>
+        <span>
+            {% if todo.is_done %}
+                ✔
+            {% else %}
+                ❌
+            {% endif %}
+        </span>
+        <div class="d-flex justify-content-between ">
+            <a href="{% url 'update' todo.id %}" class="btn btn-primary">Edit Task</a>
+        <a href="{% url 'delete' todo.id %}" class="btn btn-danger">Delete Task</a></div>
+
+    </div>
+</div>
+{% endblock %}

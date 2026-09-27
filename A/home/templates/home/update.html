@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <div class="container pt-5 py-5 m-5 rounded rounded-5 border-black shadow-lg d-flex justify-content-center ">
+       <form action="" method="post">
+       {% csrf_token %}
+       {{ form.as_table }}
+       <input type="submit" value="Edit task" class="btn btn-info border rounded-4    ">
+   </form>
+   </div>
+
+{% endblock %}
